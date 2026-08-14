@@ -8,12 +8,12 @@ import { createOpenAITranslationProvider } from "@/features/import-book/infrastr
 import type { TextToSpeechProvider } from "@/features/pronunciation/application/text-to-speech-provider";
 import { createElevenLabsTtsProvider } from "@/features/pronunciation/infrastructure/elevenlabs-tts-provider";
 import type { DocumentRepository } from "@/lib/documents/document-repository";
-import { createInMemoryDocumentRepository } from "@/lib/documents/in-memory-document-repository";
+import { createRedisDocumentRepository } from "@/lib/documents/redis-document-repository";
 
 /**
  * Composition root. Adapters are chosen here and only here; routes and pages
- * depend on the ports. Stored on globalThis so the in-memory document store
- * survives dev-server module reloads.
+ * depend on the ports. Stored on globalThis so a single instance is reused
+ * across dev-server module reloads and warm serverless invocations.
  */
 type Services = {
   documentRepository: DocumentRepository;
@@ -29,7 +29,7 @@ export function getServices(): Services {
 }
 
 function createServices(): Services {
-  const documentRepository = createInMemoryDocumentRepository();
+  const documentRepository = createRedisDocumentRepository();
 
   return {
     documentRepository,
