@@ -1,0 +1,19 @@
+.hero {
+  max-width: var(--reader-measure);
+  margin-inline: auto;
+  padding: var(--space-16) var(--space-4);
+}
+
+.title {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.lead {
+  margin: 0;
+  font-size: var(--text-lg);
+  color: var(--color-text-subtle);
+}

@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude plugins *)",
+      "Read(//Users/mihailsitnic/.claude/plugins/**)",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)",
+      "Bash(node -e \"console.log\\(require\\('openai/package.json'\\).version\\)\")",
+      "Bash(npm pkg *)",
+      "Bash(npx vitest *)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:developers.openai.com)",
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(git add *)",
+      "Skill(agent-browser)",
+      "Skill(agent-browser:*)",
+      "Bash(kill 89996)",
+      "Bash(echo \"tsc exit: $?\")",
+      "Bash(npx eslint *)",
+      "Bash(echo \"lint exit: $?\")",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code} type=%{content_type} bytes=%{size_download} ttfb=%{time_starttransfer}s\\\\n\" \"http://localhost:3000/api/tts?text=Il%20%C3%A9tait%20une%20fois\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' 'http://localhost:3000/api/tts?text=')",
+      "Bash(echo \"empty: $\\(curl -s -o /dev/null -w '%{http_code}' 'http://localhost:3000/api/tts?text='\\)\")",
+      "Bash(python3 -c 'print\\(\"a%20\"*300\\)')",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' \"http://localhost:3000/api/tts?text=$\\(python3 -c 'print\\(\"a%20\"*300\\)'\\)\")",
+      "Bash(echo \"toolong: $\\(curl -s -o /dev/null -w '%{http_code}' \"http://localhost:3000/api/tts?text=$\\(python3 -c 'print\\(\"a%20\"*300\\)'\\)\"\\)\")",
+      "Bash(git reset *)",
+      "Bash(sips -g pixelWidth -g pixelHeight public/meta.png)",
+      "Bash(curl -s http://localhost:3000)"
+    ]
+  }
+}
