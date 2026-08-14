@@ -159,7 +159,7 @@ export function ImportDialog({ importBook = importBookViaApi }: Props) {
             <textarea
               className={styles.textarea}
               aria-label={TEXTAREA_LABELS[sourceLanguage]}
-              placeholder={`${TEXTAREA_LABELS[sourceLanguage]} from a book…`}
+              placeholder={`${TEXTAREA_LABELS[sourceLanguage]} here...`}
               value={text}
               onChange={(event) => setText(event.target.value)}
               rows={12}
