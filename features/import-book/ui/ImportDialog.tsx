@@ -8,6 +8,7 @@ import {
   type MouseEvent,
 } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import type { Language } from "../domain/bilingual-document";
 import type { ImportRequest, ImportResult } from "../application/import-book";
 import { importBookViaApi } from "./import-client";
@@ -35,6 +36,7 @@ const TEXTAREA_LABELS: Record<Language, string> = {
  */
 export function ImportDialog({ importBook = importBookViaApi }: Props) {
   const router = useRouter();
+  const { status } = useSession();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -97,7 +99,13 @@ export function ImportDialog({ importBook = importBookViaApi }: Props) {
         ref={triggerRef}
         type="button"
         className={styles.trigger}
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          if (status !== "authenticated") {
+            router.push("/sign-in");
+            return;
+          }
+          setOpen(true);
+        }}
       >
         + Import
       </button>

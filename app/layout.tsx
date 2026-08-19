@@ -1,16 +1,17 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Geist, Literata } from "next/font/google";
+import { Inter } from "next/font/google";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 import { AppHeader } from "./ui/AppHeader";
+import { AuthProvider } from "./providers/auth";
 import "./globals.scss";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const literata = Literata({
-  variable: "--font-literata",
-  subsets: ["latin", "latin-ext"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  weight: ["200", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -29,12 +30,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) {
+  const session = await getServerSession(authOptions);
   return (
-    <html lang="en" className={`${geistSans.variable} ${literata.variable}`}>
-      <body>
-        <AppHeader />
-        <main>{children}</main>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <AuthProvider session={session}>
+          <AppHeader />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

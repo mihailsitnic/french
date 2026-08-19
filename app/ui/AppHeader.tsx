@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImportDialog } from "@/features/import-book/ui/ImportDialog";
+import { AuthState } from "./auth-state";
 import styles from "./AppHeader.module.scss";
 
 export function AppHeader() {
@@ -11,7 +12,10 @@ export function AppHeader() {
             <img src="/logo.png" alt="logo" className={styles.logo} />
             Mon Ami
           </Link>
-          <ImportDialog />
+          <div>
+            <ImportDialog />
+            <AuthState />
+          </div>
         </div>
       </div>
     </header>

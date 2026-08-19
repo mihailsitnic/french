@@ -5,6 +5,14 @@
   top: 0;
   width: 100%;
   z-index: 100;
+
+  &__login {
+    color: #4081ec;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 16px;
+  }
 }
 
 .wordmark {
