@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { AppHeader } from "./ui/AppHeader";
 import { AuthProvider } from "./providers/auth";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.scss";
 
 const inter = Inter({
@@ -43,6 +44,7 @@ export default async function RootLayout({
           <AppHeader />
           {children}
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );
