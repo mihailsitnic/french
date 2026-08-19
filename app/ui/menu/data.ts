@@ -4,6 +4,7 @@ const data = [
     title: "Log out",
     icon: "/log-out.svg",
     action: "logout",
+    link: "/",
   },
 ];
 
