@@ -13,9 +13,9 @@ const SignInPage = () => {
   const callbackUrl = useMemo(() => {
     const rawCallback = searchParams.get("callbackUrl");
 
-    if (!rawCallback) return "/chat/conversation";
+    if (!rawCallback) return "/";
 
-    return rawCallback.startsWith("/") ? rawCallback : "/chat/conversation";
+    return rawCallback.startsWith("/") ? rawCallback : "/";
   }, [searchParams]);
 
   const isLoading = status === "loading";
