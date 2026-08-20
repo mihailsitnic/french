@@ -1,86 +1,73 @@
 .menu {
-	background: var(--white);
-	border-radius: 4px;
-	position: absolute;
-	padding: 8px 0;
-	box-shadow: var(--black2) 0 20px 40px -12px;
-	right: 0;
-	width: 200px;
-	top: 70px;
-	z-index: 200;
-	transition: all 0.3s ease 0s;
+  background: var(--white);
+  border-radius: 4px;
+  position: absolute;
+  padding: 8px 0;
+  box-shadow: var(--black2) 0 20px 40px -12px;
+  right: 0;
+  width: 200px;
+  top: 70px;
+  z-index: 200;
+  transition: all 0.3s ease 0s;
 
-	&__list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-	&__item {
-		width: 100%;
-		position: relative;
+  &__item {
+    width: 100%;
+    position: relative;
 
-		&:nth-last-child(2) {
-			padding-bottom: 8px;
-		}
+    &:nth-last-child(2) {
+      padding-bottom: 8px;
+    }
 
-		&:last-child {
-			padding-top: 8px;
+    &:last-child {
+      & a {
+        color: var(--red);
+      }
+    }
+  }
 
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				width: calc(100% - 24px);
-				height: 1px;
-				background: var(--grey4);
-			}
+  &__link {
+    color: var(--black);
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.43;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 10px 8px 42px;
 
-			& a {
-				color: var(--red);
-			}
-		}
-	}
+    &:hover {
+      background: var(--grey2);
+    }
+  }
 
-	&__link {
-		color: var(--black);
-		display: flex;
-		width: 100%;
-		font-size: 14px;
-		line-height: 1.43;
-		text-decoration: none;
-		position: relative;
-		padding: 8px 10px 8px 42px;
+  &__icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-		&:hover {
-			background: var(--grey2);
-		}
-	}
+  &__button {
+    width: 100%;
+    font-size: 14px;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    padding: 8px 10px 8px 42px;
+    background: transparent;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    cursor: pointer;
 
-	&__icon {
-		position: absolute;
-		left: 16px;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	&__button {
-		width: 100%;
-		font-size: 14px;
-		color: var(--red);
-		display: flex;
-		align-items: center;
-		padding: 8px 10px 8px 42px;
-		background: transparent;
-		text-decoration: none;
-		position: relative;
-		border: none;
-		cursor: pointer;
-
-		&:hover {
-			background: var(--grey2);
-		}
-	}
+    &:hover {
+      background: var(--grey2);
+    }
+  }
 }

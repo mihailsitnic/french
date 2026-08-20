@@ -12,7 +12,7 @@ export function AppHeader() {
             <img src="/logo.png" alt="logo" className={styles.logo} />
             Mon Ami
           </Link>
-          <div>
+          <div className={styles.flex}>
             <ImportDialog />
             <AuthState />
           </div>

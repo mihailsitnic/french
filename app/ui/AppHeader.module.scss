@@ -15,6 +15,12 @@
   }
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .wordmark {
   font-family: var(--font-serif);
   font-size: var(--text-xl);

@@ -54,6 +54,8 @@ export const User = ({ data }: UserPropsTypes) => {
 
   if (!data) return null;
 
+  console.log("data = ", data);
+
   const userInitial = data.name?.trim().charAt(0).toUpperCase() || "U";
 
   return (
